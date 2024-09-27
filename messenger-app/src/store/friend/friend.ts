@@ -4,7 +4,6 @@ import { FriendState } from './types'
 
 export const initialState: FriendState = {
     friends: null,
-    active: '1',
 }
 
 const FriendSlice = createSlice({
@@ -17,9 +16,6 @@ const FriendSlice = createSlice({
         setFriends: (state, action: PayloadAction<User[] | null>) => {
             state.friends = action.payload
         },
-        setActiveFriend: (state, action: PayloadAction<string>) => {
-            state.active = action.payload
-        },
     },
 })
 
@@ -27,7 +23,6 @@ const FriendSlice = createSlice({
 export const {
     clear,
     setFriends,
-    setActiveFriend,
 } = FriendSlice.actions
 
 export default FriendSlice
