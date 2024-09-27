@@ -25,9 +25,9 @@ const UserSlice = createSlice({
 
 // actions
 export const {
+    clear,
     setUser,
     setIdToken,
-    clear,
 } = UserSlice.actions
 
 export default UserSlice

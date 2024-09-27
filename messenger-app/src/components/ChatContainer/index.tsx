@@ -40,16 +40,16 @@ const ChatContainer: FC<ChatContainerProps> = ({
                 isOnline={user.isOnline}
             />
             <div className={style.messages}>
-                {!messages ?
+                {!messages || !user || !currentUser ?
                     <h4>Send your first message!</h4> :
                     <div className={style.messageList}>
                         {messages.map((message) => {
-                            return (
+                            return message.sender === user.name || message.sender === currentUser.name ? (
                                 <Message
                                     key={message.id}
                                     message={message}
                                 />
-                            )
+                            ) : null
                         })}
                     </div>
                 }

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useCallback, useEffect } from "react"
 import "react-chat-elements/dist/main.css"
 import ChatContainer from "../../components/ChatContainer"
 import ConversationList from "../../components/ConversationList"
@@ -7,6 +7,7 @@ import { setConversations, setMessages } from "../../store/conversation/conversa
 import { setFriends } from "../../store/friend/friend"
 import { useAppDispatch, useAppSelector } from "../../store/hooks"
 import { setUser } from "../../store/user/user"
+import { User } from "../../types"
 import style from './style.module.scss'
 
 function Home() {
@@ -15,6 +16,7 @@ function Home() {
   const messages = useAppSelector((state) => state.conversation.messages)
   const friends = useAppSelector((state) => state.friend.friends)
   const currentUser = useAppSelector((state) => state.user.user)
+  const activeConversation = useAppSelector((state) => state.conversation.active)
 
   useEffect(() => {
     // let's simulate a request from DB to get data
@@ -24,6 +26,11 @@ function Home() {
     dispatch(setUser(userFakeData))
   }, [conversations, currentUser, dispatch])
 
+  const getActiveFriend = useCallback((): User => {
+    const friendName = conversations.find((conversation) => conversation.id === activeConversation).title
+    return friends.find((friend) => friend.name === friendName)
+  }, [conversations, friends, activeConversation])
+
 
   return (
     <div className={style.app}>
@@ -32,7 +39,7 @@ function Home() {
       </div>
       {friends ? 
         <div className={style.rightDivContainer}>
-        <ChatContainer messages={messages} user={friends[0]} />
+        <ChatContainer messages={messages} user={getActiveFriend()} />
       </div> : null}
     </div>
   )

@@ -23,6 +23,6 @@ export interface UserConversation {
     unread: number
 }
 
-export const AVATAR_DEFAULT = 'https://chatscope.io/storybook/react/assets/emily-xzL8sDL2.svg' //TODO: change default avatar
+export const AVATAR_DEFAULT = 'https://i.pinimg.com/736x/36/95/37/369537d07faab72506f1325d42e650bc.jpg'
 
 export type AvatarSizeType = 'xs' | 'sm' | 'md' | 'lg' | 'fluid' 

@@ -5,6 +5,7 @@ import { ConversationState } from './types'
 export const initialState: ConversationState = {
     conversations: null,
     messages: null,
+    active: 1
 }
 
 const ConversationSlice = createSlice({
@@ -22,16 +23,20 @@ const ConversationSlice = createSlice({
         },
         addMessage: (state, action: PayloadAction<UserMessage>) => {
             if (action.payload) state.messages.push(action.payload)
+        },
+        setActiveConversation: (state, action: PayloadAction<number>) => {
+            state.active = action.payload
         }, 
     },
 })
 
 // actions
 export const {
+    clear,
     setConversations,
     setMessages,
-    clear,
     addMessage,
+    setActiveConversation,
 } = ConversationSlice.actions
 
 export default ConversationSlice
