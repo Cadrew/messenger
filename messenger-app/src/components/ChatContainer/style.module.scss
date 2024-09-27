@@ -1,0 +1,22 @@
+.chatContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.messageInput {
+    align-items: flex-end;
+    display: flex;
+    height: 10%;
+    width: 100%;
+}
+
+.messageList {
+    height: 75%;
+    overflow-y: scroll;
+    width: 100%;
+}

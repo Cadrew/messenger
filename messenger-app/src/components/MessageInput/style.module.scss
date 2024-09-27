@@ -1,0 +1,14 @@
+@use '../../styles/theme';
+
+.messageInputContainer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: -webkit-fill-available;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.sendBtn {
+    background-color: theme.color('primary') !important;
+}

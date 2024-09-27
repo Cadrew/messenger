@@ -1,0 +1,24 @@
+@use '../../styles/theme';
+
+.app {
+    align-items: center;
+    background-color: theme.color('white');
+    color: theme.color('black');
+    color-scheme: light;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+}
+
+.leftDivContainer {
+    border-right: solid theme.color('separator');
+    height: 100%;
+    width: 40%;
+}
+
+.rightDivContainer {
+    height: 100%;
+    width: 60%;
+}

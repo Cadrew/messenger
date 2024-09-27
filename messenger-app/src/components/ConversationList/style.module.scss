@@ -1,0 +1,8 @@
+@use '../../styles/theme';
+
+.chatList {
+    border-top: solid theme.color('separator');
+    height: -webkit-fill-available;
+    overflow-y: scroll;
+    width: 100%;
+}
