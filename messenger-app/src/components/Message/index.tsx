@@ -12,22 +12,25 @@ const Message: FC<MessageProps> = ({
     message,
 }) => {
     return (
-        <MessageBox 
-            type={'text'}
-            id={message.id}
-            title={message.sender}
-            text={message.message}
-            position={message.direction}
-            date={parseInt(message.sentTime)}
-            focus={true}
-            forwarded={false}
-            titleColor={'#4f81a1'}
-            replyButton={false}
-            removeButton={false}
-            status='sent'
-            notch={true}
-            retracted={false}
-        />
+        <div className={style.messageBox}>
+            <MessageBox 
+                type={'text'}
+                id={message.id}
+                title={message.sender}
+                text={message.message}
+                position={message.direction}
+                date={parseInt(message.sentTime)}
+                focus={true}
+                forwarded={false}
+                titleColor={''}
+                replyButton={false}
+                removeButton={false}
+                status='sent'
+                notch={true}
+                retracted={false}
+            />
+        </div>
+        
     )
 }
 

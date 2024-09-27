@@ -2,7 +2,28 @@
 
 .chatList {
     border-top: solid theme.color('separator');
-    height: -webkit-fill-available;
-    overflow-y: scroll;
+    height: 85%;
+    overflow-y: auto;
     width: 100%;
+    background-color: theme.color('secondary');
+
+    :global(.rce-citem-body--bottom-status span) {
+        background-color: theme.color('primary');
+    }
+}
+
+.chatItem :global(.rce-citem) {
+    color: theme.color('white');
+    background-color: theme.color('secondary');
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+    &:hover {
+        background-color: theme.color('gray-10');
+        -moz-transition: all .1s ease-in;
+        -o-transition: all .1s ease-in;
+        -webkit-transition: all .1s ease-in;
+        transition: all .1s ease-in;
+    }
 }

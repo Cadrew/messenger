@@ -15,10 +15,11 @@ function Home() {
   const conversations = useAppSelector((state) => state.conversation.conversations)
   const messages = useAppSelector((state) => state.conversation.messages)
   const friends = useAppSelector((state) => state.friend.friends)
+  const currentUser = useAppSelector((state) => state.user.user)
   const activeConversation = useAppSelector((state) => state.conversation.active)
 
   useEffect(() => {
-    // let's simulate a request from DB to get data
+    // it simulates a request from DB to get data
     dispatch(setConversations(conversationsFakeData))
     dispatch(setFriends(friendsFakeData))
     dispatch(setMessages(messagesFakeData))
@@ -34,6 +35,11 @@ function Home() {
   return (
     <div className={style.app}>
       <div className={style.leftDivContainer}>
+        <div className={style.titleArea}>
+          <label className={style.userName}>{currentUser? currentUser.name : ''}</label>
+          <label className={style.userStatus}>Online</label>
+        </div>
+        <div className={style.contactsArea}>Contacts</div>
         <ConversationList conversations={conversations} />
       </div>
       {friends ? 

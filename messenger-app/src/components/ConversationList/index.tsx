@@ -16,13 +16,15 @@ const ConversationList: FC<ConversationListProps> = ({
     const dispatch = useAppDispatch()
 
     return (
-        <div>
+        <div className={style.chatList}>
             {!conversations ? 
                 <h4>No conversations found</h4> :
-                <div className={style.chatList}>
+                <div>
                     {conversations.map((conversation) => {
                         return (
                             <ChatItem
+                                className={style.chatItem}
+                                key={conversation.id}
                                 id={conversation.id}
                                 avatar={conversation.avatar}
                                 alt={conversation.alt}

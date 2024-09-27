@@ -5,7 +5,9 @@
     border-bottom: solid theme.color('separator');
     display: flex;
     height: 15%;
-    margin-left: 2%;
+    padding-left: 2%;
+    color: theme.color('white');
+    background-color: theme.color('secondary');
 }
 
 .infoArea {

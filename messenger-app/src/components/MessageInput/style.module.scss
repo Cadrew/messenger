@@ -7,6 +7,29 @@
     width: -webkit-fill-available;
     padding-left: 50px;
     padding-right: 50px;
+
+    :global(.rce-input) {
+        background-color: theme.color('gray-5');
+        color: theme.color('white');
+        margin-right: 10px;
+    }
+
+    input {
+        padding-left: 10px;
+        padding-right: 10px;
+        -moz-transition: all .2s ease-in;
+        -o-transition: all .2s ease-in;
+        -webkit-transition: all .2s ease-in;
+        transition: all .2s ease-in;
+    }
+
+    input:focus {
+        box-shadow: 0 0 4px 1px theme.color('primary');
+        -moz-transition: all .2s ease-in;
+        -o-transition: all .2s ease-in;
+        -webkit-transition: all .2s ease-in;
+        transition: all .2s ease-in;
+    }
 }
 
 .sendBtn {

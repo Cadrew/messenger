@@ -31,7 +31,7 @@ const ChatContainer: FC<ChatContainerProps> = ({
         }))
     }, [messages, currentUser, user.name, dispatch])
 
-    const shouldDisplayMessage = useCallback((message): boolean => {
+    const shouldDisplay = useCallback((message: UserMessage): boolean => {
         if (message.sender !== user.name && message.sender !== currentUser.name)
             return false
         if (message.sender === currentUser.name && message.to !== user.name)
@@ -51,9 +51,9 @@ const ChatContainer: FC<ChatContainerProps> = ({
             <div className={style.messages}>
                 {!messages || !user || !currentUser ?
                     <h4>Send your first message!</h4> :
-                    <div className={style.messageList}>
+                    <div>
                         {messages.map((message) => {
-                            return shouldDisplayMessage(message) ? (
+                            return shouldDisplay(message) ? (
                                 <Message
                                     key={message.id}
                                     message={message}
