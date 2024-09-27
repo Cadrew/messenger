@@ -6,6 +6,7 @@ export let messagesFakeData: UserMessage[] = [
         direction: 'left',
         message: 'Hello!',
         sender: 'Emily',
+        to: 'me',
         sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
@@ -13,6 +14,7 @@ export let messagesFakeData: UserMessage[] = [
         direction: 'left',
         message: 'How are you doing today?',
         sender: 'Emily',
+        to: 'me',
         sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
@@ -20,6 +22,7 @@ export let messagesFakeData: UserMessage[] = [
         direction: 'left',
         message: 'Hey! What\'s up? :)',
         sender: 'Eliot',
+        to: 'me',
         sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
@@ -27,6 +30,7 @@ export let messagesFakeData: UserMessage[] = [
         direction: 'left',
         message: 'It was great this weekend',
         sender: 'Marc',
+        to: 'me',
         sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
@@ -34,6 +38,7 @@ export let messagesFakeData: UserMessage[] = [
         direction: 'left',
         message: 'You helped me a lot!',
         sender: 'Lin',
+        to: 'me',
         sentTime: (new Date().getTime() - 10000000).toString()
     },
     {
@@ -41,6 +46,7 @@ export let messagesFakeData: UserMessage[] = [
         direction: 'left',
         message: 'Thank you!',
         sender: 'Lin',
+        to: 'me',
         sentTime: (new Date().getTime() - 10000000).toString()
     }
 ]

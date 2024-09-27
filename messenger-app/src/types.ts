@@ -3,6 +3,7 @@ export interface UserMessage {
     message: string
     sentTime: string
     sender: string
+    to: string
     direction?: 'left' | 'right'
 }
 

@@ -26,9 +26,18 @@ const ChatContainer: FC<ChatContainerProps> = ({
             direction: 'right',
             message: message,
             sender: currentUser ? currentUser.name : '',
+            to: user.name,
             sentTime: new Date().getTime().toString()
         }))
-    }, [messages, currentUser, dispatch])
+    }, [messages, currentUser, user.name, dispatch])
+
+    const shouldDisplayMessage = useCallback((message): boolean => {
+        if (message.sender !== user.name && message.sender !== currentUser.name)
+            return false
+        if (message.sender === currentUser.name && message.to !== user.name)
+            return false
+        return true
+    }, [currentUser.name, user.name])
 
     return (
         <div 
@@ -44,7 +53,7 @@ const ChatContainer: FC<ChatContainerProps> = ({
                     <h4>Send your first message!</h4> :
                     <div className={style.messageList}>
                         {messages.map((message) => {
-                            return message.sender === user.name || message.sender === currentUser.name ? (
+                            return shouldDisplayMessage(message) ? (
                                 <Message
                                     key={message.id}
                                     message={message}
