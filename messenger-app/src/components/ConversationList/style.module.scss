@@ -10,6 +10,14 @@
     :global(.rce-citem-body--bottom-status span) {
         background-color: theme.color('primary');
     }
+
+    :global(.rce-citem-body--top-time) {
+        color: theme.color('separator');
+    }
+
+    :global(.rce-citem-body--bottom-title) {
+        color: theme.color('separator');
+    }
 }
 
 .chatItem :global(.rce-citem) {
