@@ -25,8 +25,11 @@ const ConversationSlice = createSlice({
             if (action.payload) state.messages.push(action.payload)
         },
         setActiveConversation: (state, action: PayloadAction<number>) => {
+            const index = state.conversations.findIndex(conversation => conversation.id === action.payload)
+            console.log(state.conversations[index].unread)
+            state.conversations[index].unread = 0
             state.active = action.payload
-        }, 
+        },
     },
 })
 

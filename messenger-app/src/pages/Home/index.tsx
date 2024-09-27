@@ -15,7 +15,6 @@ function Home() {
   const conversations = useAppSelector((state) => state.conversation.conversations)
   const messages = useAppSelector((state) => state.conversation.messages)
   const friends = useAppSelector((state) => state.friend.friends)
-  const currentUser = useAppSelector((state) => state.user.user)
   const activeConversation = useAppSelector((state) => state.conversation.active)
 
   useEffect(() => {
@@ -24,7 +23,7 @@ function Home() {
     dispatch(setFriends(friendsFakeData))
     dispatch(setMessages(messagesFakeData))
     dispatch(setUser(userFakeData))
-  }, [conversations, currentUser, dispatch])
+  }, [dispatch])
 
   const getActiveFriend = useCallback((): User => {
     const friendName = conversations.find((conversation) => conversation.id === activeConversation).title
