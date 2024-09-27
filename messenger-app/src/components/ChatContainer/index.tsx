@@ -5,6 +5,8 @@ import ConversationHeader from '../ConversationHeader'
 import { User, UserMessage } from '../../types'
 import MessageInput from '../MessageInput'
 import Message from '../Message'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { addMessage } from '../../store/conversation/conversation'
 
 interface ChatContainerProps {
     messages: UserMessage[]
@@ -15,16 +17,18 @@ const ChatContainer: FC<ChatContainerProps> = ({
     messages,
     user
 }) => {
+    const dispatch = useAppDispatch()
+    const currentUser = useAppSelector((state) => state.user.user)
+
     const handleMessageSent = useCallback((message: string) => {
-        messages.push(
-            {
-                id: messages[messages.length - 1].id + 1,
-                direction: 'right',
-                message: message,
-                sender: user.name,
-                sentTime: new Date().toDateString()
-            })
-    }, [])
+        dispatch(addMessage({
+            id: messages[messages.length - 1].id + 1,
+            direction: 'right',
+            message: message,
+            sender: currentUser ? currentUser.name : '',
+            sentTime: new Date().getTime().toString()
+        }))
+    }, [messages, currentUser, dispatch])
 
     return (
         <div 
@@ -36,16 +40,19 @@ const ChatContainer: FC<ChatContainerProps> = ({
                 isOnline={user.isOnline}
             />
             <div className={style.messages}>
-                <div className={style.messageList}>
-                    {messages.map((message) => {
-                        return (
-                            <Message
-                                message={message}
-                            />
-                        )
-                    })}
-                </div>
-                
+                {!messages ?
+                    <h4>Send your first message!</h4> :
+                    <div className={style.messageList}>
+                        {messages.map((message) => {
+                            return (
+                                <Message
+                                    key={message.id}
+                                    message={message}
+                                />
+                            )
+                        })}
+                    </div>
+                }
             </div>
             <div className={style.messageInput}>
                 <MessageInput autofocus={true} onMessageSent={handleMessageSent} />

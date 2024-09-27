@@ -1,10 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { setupListeners } from '@reduxjs/toolkit/dist/query'
+import { setupListeners } from '@reduxjs/toolkit/query/react'
 import rootReducer from './reducer'
 
 export function createStore(preloadedState = {}) {
     return configureStore({
-        reducer: rootReducer,
+        reducer: rootReducer,        
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                serializableCheck: false,
+                immutableCheck: false,
+            }),
         preloadedState,
     })
 }

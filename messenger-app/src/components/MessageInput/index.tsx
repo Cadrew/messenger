@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useRef, useState } from 'react'
+import React, { FC, useCallback, useState } from 'react'
 
 import style from './style.module.scss'
 import { Input, Button } from 'react-chat-elements'
@@ -20,11 +20,10 @@ const MessageInput: FC<MessageInputProps> = ({
 
     const handleSubmit = useCallback(() => {
         if (messageValue !== '') {
-            console.log(messageValue)
             onMessageSent(messageValue)
             setMessageValue('')
         }
-    }, [messageValue])
+    }, [messageValue, onMessageSent])
 
     const handleChange = useCallback((evt) => {
         setMessageValue(evt.target.value)

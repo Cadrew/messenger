@@ -1,51 +1,51 @@
 import { User, UserConversation, UserMessage } from "./types"
 
-export let messages: UserMessage[] = [
+export let messagesFakeData: UserMessage[] = [
     {
         id: '1',
         direction: 'left',
         message: 'Hello my friend',
         sender: 'Emily',
-        sentTime: '15 mins ago'
+        sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
         id: '2',
         direction: 'right',
         message: 'Hello my friend',
         sender: 'Eliot',
-        sentTime: '15 mins ago'
+        sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
         id: '3',
         direction: 'left',
         message: 'Hello my friend',
         sender: 'Emily',
-        sentTime: '15 mins ago'
+        sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
         id: '4',
         direction: 'right',
         message: 'Hello my friend',
         sender: 'Eliot',
-        sentTime: '15 mins ago'
+        sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
         id: '5',
         direction: 'left',
         message: 'Hello my friend',
         sender: 'Emily',
-        sentTime: '15 mins ago'
+        sentTime: (new Date().getTime() - 1000000).toString()
     },
     {
         id: '6',
         direction: 'right',
         message: 'Hello my friend',
         sender: 'Eliot',
-        sentTime: '15 mins ago'
+        sentTime: (new Date().getTime() - 1000000).toString()
     }
 ]
 
-export let users: User[] = [
+export let friendsFakeData: User[] = [
     {
         id: '1',
         name: 'Emily',
@@ -60,7 +60,7 @@ export let users: User[] = [
     }
 ]
 
-export let conversations: UserConversation[] = [
+export let conversationsFakeData: UserConversation[] = [
     {
         id: 1,
         title: 'Eliot',
@@ -98,3 +98,10 @@ export let conversations: UserConversation[] = [
         unread: 3
     }
 ]
+
+export let userFakeData: User = {
+        id: '0',
+        name: 'Jean',
+        src: 'https://chatscope.io/storybook/react/assets/emily-xzL8sDL2.svg',
+        isOnline: true
+    }

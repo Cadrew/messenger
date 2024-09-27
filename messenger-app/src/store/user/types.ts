@@ -1,6 +1,6 @@
-import { UserConversation } from '../../types'
+import { User } from '../../types'
 
 export interface UserState {
-    user: UserConversation | null
+    user: User | null
     idToken: string
 }

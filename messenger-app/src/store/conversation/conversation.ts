@@ -14,12 +14,15 @@ const ConversationSlice = createSlice({
         clear: () => {
             return initialState
         },
-        setConversations: (state, action: PayloadAction<UserConversation[]>) => {
+        setConversations: (state, action: PayloadAction<UserConversation[] | null>) => {
             state.conversations = action.payload
         },
-        setMessages: (state, action: PayloadAction<UserMessage[]>) => {
+        setMessages: (state, action: PayloadAction<UserMessage[] | null>) => {
             state.messages = action.payload
-        }
+        },
+        addMessage: (state, action: PayloadAction<UserMessage>) => {
+            if (action.payload) state.messages.push(action.payload)
+        }, 
     },
 })
 
@@ -28,6 +31,7 @@ export const {
     setConversations,
     setMessages,
     clear,
+    addMessage,
 } = ConversationSlice.actions
 
 export default ConversationSlice
