@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback } from 'react'
 
 import style from './style.module.scss'
 import ConversationHeader from '../ConversationHeader'
@@ -15,6 +15,17 @@ const ChatContainer: FC<ChatContainerProps> = ({
     messages,
     user
 }) => {
+    const handleMessageSent = useCallback((message: string) => {
+        messages.push(
+            {
+                id: messages[messages.length - 1].id + 1,
+                direction: 'right',
+                message: message,
+                sender: user.name,
+                sentTime: new Date().toDateString()
+            })
+    }, [])
+
     return (
         <div 
             className={style.chatContainer}
@@ -37,7 +48,7 @@ const ChatContainer: FC<ChatContainerProps> = ({
                 
             </div>
             <div className={style.messageInput}>
-                <MessageInput autofocus={true} />
+                <MessageInput autofocus={true} onMessageSent={handleMessageSent} />
             </div>
         </div>
     )

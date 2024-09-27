@@ -7,18 +7,21 @@ interface MessageInputProps {
     autofocus?: boolean
     multiline?: boolean
     placeholder?: string
+    onMessageSent?: (message: string) => void
 }
 
 const MessageInput: FC<MessageInputProps> = ({
     autofocus = false,
     multiline = false,
-    placeholder = "Type message here..."
+    placeholder = "Type message here...",
+    onMessageSent
 }) => {
     const [messageValue, setMessageValue] = useState<string>('')
 
     const handleSubmit = useCallback(() => {
         if (messageValue !== '') {
             console.log(messageValue)
+            onMessageSent(messageValue)
             setMessageValue('')
         }
     }, [messageValue])
