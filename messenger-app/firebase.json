@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "site": "messenger-app-21c87",
+    "public": "build",
+    "cleanUrls": true,
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
