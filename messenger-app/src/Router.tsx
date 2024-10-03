@@ -1,6 +1,5 @@
-import React, { FC, useCallback, useEffect } from 'react'
+import React, { FC, useCallback } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { useAppDispatch } from './store/hooks'
 import Home from './pages/Home'
 import Login from './pages/Login'
 
@@ -11,12 +10,6 @@ export interface RouterPropsInterface {
 const Router: FC<RouterPropsInterface> = ({
     isSignedIn,
 }) => {
-    const dispatch = useAppDispatch()
-
-    useEffect(() => {
-        // TODO: get user       
-    }, [isSignedIn, dispatch])
-
     const renderIndexPage = useCallback(() => {
         if (isSignedIn) {
             return (
@@ -24,7 +17,6 @@ const Router: FC<RouterPropsInterface> = ({
             )
         }
         return (
-            // <Login setSignedIn={setSignedIn} setSignedOut={setSignedOut} />
             <Login />
         )
     }, [isSignedIn])
