@@ -22,6 +22,12 @@ export interface UserConversation {
     avatar?: string
     alt?: string
     unread: number
+    draft: string
+}
+
+export interface DraftMessage {
+    id: number
+    draft: string
 }
 
 export const AVATAR_DEFAULT = 'https://i.pinimg.com/736x/36/95/37/369537d07faab72506f1325d42e650bc.jpg'

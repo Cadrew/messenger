@@ -6,7 +6,7 @@ import { User, UserMessage } from '../../types'
 import MessageInput from '../MessageInput'
 import Message from '../Message'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { addMessage } from '../../store/conversation/conversation'
+import { addMessage, setMessages } from '../../store/conversation/conversation'
 
 interface ChatContainerProps {
     messages: UserMessage[]
@@ -19,6 +19,10 @@ const ChatContainer: FC<ChatContainerProps> = ({
 }) => {
     const dispatch = useAppDispatch()
     const currentUser = useAppSelector((state) => state.user.user)
+
+    const handleRemove = useCallback((messageId) => {
+        dispatch(setMessages(messages.filter(item => item.id !== messageId)))
+    }, [messages, dispatch])
 
     const handleMessageSent = useCallback((message: string) => {
         dispatch(addMessage({
@@ -57,6 +61,7 @@ const ChatContainer: FC<ChatContainerProps> = ({
                                 <Message
                                     key={message.id}
                                     message={message}
+                                    onClick={() => handleRemove(message.id)}
                                 />
                             ) : null
                         })}
@@ -64,7 +69,7 @@ const ChatContainer: FC<ChatContainerProps> = ({
                 }
             </div>
             <div className={style.messageInput}>
-                <MessageInput autofocus={true} onMessageSent={handleMessageSent} />
+                <MessageInput autofocus={true} onMessageSent={handleMessageSent} friend={user} />
             </div>
         </div>
     )

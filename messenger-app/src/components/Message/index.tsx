@@ -6,10 +6,12 @@ import { MessageBox } from 'react-chat-elements'
 
 export interface MessageProps {
     message: UserMessage
+    onClick?: () => void
 }
 
 const Message: FC<MessageProps> = ({
     message,
+    onClick = () => {}
 }) => {
     return (
         <div className={style.messageBox}>
@@ -27,7 +29,8 @@ const Message: FC<MessageProps> = ({
                 removeButton={false}
                 status='sent'
                 notch={true}
-                retracted={false}
+                retracted={false}                
+                onClick={onClick}
             />
         </div>
         

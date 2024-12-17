@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { UserConversation, UserMessage } from '../../types'
+import { DraftMessage, UserConversation, UserMessage } from '../../types'
 import { ConversationState } from './types'
 
 export const initialState: ConversationState = {
@@ -29,6 +29,10 @@ const ConversationSlice = createSlice({
             state.conversations[index].unread = 0
             state.active = action.payload
         },
+        setDraftMessage: (state, action: PayloadAction<DraftMessage>) => {
+            const index = state.conversations.findIndex(conversation => conversation.id === action.payload.id)
+            state.conversations[index].draft = action.payload.draft
+        },
     },
 })
 
@@ -39,6 +43,7 @@ export const {
     setMessages,
     addMessage,
     setActiveConversation,
+    setDraftMessage
 } = ConversationSlice.actions
 
 export default ConversationSlice

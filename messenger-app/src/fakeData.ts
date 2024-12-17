@@ -186,7 +186,8 @@ export let conversationsFakeData: UserConversation[] = [
         date: new Date(),
         avatar: 'https://img.freepik.com/premium-photo/cute-dog-profile-picture_923558-6578.jpg',
         alt: 'eliot',
-        unread: 0
+        unread: 0,
+        draft: ''
     },
     {
         id: 2,
@@ -195,7 +196,8 @@ export let conversationsFakeData: UserConversation[] = [
         date: new Date(),
         avatar: 'https://img.freepik.com/premium-photo/bunnylicious-adventure-cute-vibrant-instagram-profile-pic-with-shiny-bunny-wearing-carrot_983420-22483.jpg',
         alt: 'eliot',
-        unread: 1
+        unread: 1,
+        draft: ''
     },
     {
         id: 3,
@@ -204,7 +206,8 @@ export let conversationsFakeData: UserConversation[] = [
         date: new Date(),
         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjO3cWPjIFy0XcZ5HzyDetj_GF3cnOapYp9g&s',
         alt: 'eliot',
-        unread: 1
+        unread: 1,
+        draft: ''
     },
     {
         id: 4,
@@ -212,7 +215,8 @@ export let conversationsFakeData: UserConversation[] = [
         subtitle: 'Thank you!',
         avatar: 'https://cdn.meiker.io/assets/100918/2022/08/icon_2022081403545262f8720c5e7ec.png',
         date: new Date(new Date().getTime() - 10000000),
-        unread: 2
+        unread: 2,
+        draft: ''
     },
     {
         id: 5,
@@ -220,7 +224,8 @@ export let conversationsFakeData: UserConversation[] = [
         subtitle: 'Do I know you?',
         avatar: 'https://i0.wp.com/wallpapers.com/images/hd/cute-stitch-profile-picture-2pi7ctlxbr89bv8a.jpg?ssl=1',
         date: new Date(new Date().getTime() - 80000000),
-        unread: 0
+        unread: 0,
+        draft: ''
     },
     {
         id: 6,
@@ -228,7 +233,8 @@ export let conversationsFakeData: UserConversation[] = [
         subtitle: 'Hello :)',
         avatar: 'https://pbs.twimg.com/media/Fw4Ade5aIAIhH99.jpg',
         date: new Date(new Date().getTime() - 80000000),
-        unread: 0
+        unread: 0,
+        draft: ''
     },
     {
         id: 7,
@@ -236,7 +242,8 @@ export let conversationsFakeData: UserConversation[] = [
         subtitle: 'Salut, t\'es là ?',
         avatar: 'https://www.creativefabrica.com/wp-content/uploads/2023/02/14/Cute-Boy-Searching-Something-Cartoon-Super-Cute-Profile-Pic-61207531-1.png',
         date: new Date(new Date().getTime() - 80000000),
-        unread: 1
+        unread: 1,
+        draft: ''
     },
     {
         id: 8,
@@ -244,7 +251,8 @@ export let conversationsFakeData: UserConversation[] = [
         subtitle: 'I\'m working today, but I\'ll be available tomorrow ;)',
         avatar: 'https://as1.ftcdn.net/v2/jpg/03/62/81/08/1000_F_362810827_6sVt0dzbB9rYBV74tilerj6ptiCvcinZ.jpg',
         date: new Date(new Date().getTime() - 800000),
-        unread: 0
+        unread: 0,
+        draft: ''
     },
     {
         id: 9,
@@ -252,7 +260,8 @@ export let conversationsFakeData: UserConversation[] = [
         subtitle: 'Oh no, not you again',
         avatar: 'https://wallpapers-clan.com/wp-content/uploads/2022/05/cute-pfp-03.jpg',
         date: new Date(new Date().getTime() - 9000000000),
-        unread: 0
+        unread: 0,
+        draft: ''
     },
     {
         id: 10,
@@ -260,6 +269,7 @@ export let conversationsFakeData: UserConversation[] = [
         subtitle: 'Are you there?',
         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxbz8S46qH4I4g7PacDGHeZuKICCu7zk3zlA&s',
         date: new Date(new Date().getTime() - 9000000000),
-        unread: 0
+        unread: 0,
+        draft: ''
     }
 ]
